@@ -9,4 +9,5 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 enable_testing()
 
 add_subdirectory(sanitizers)
+add_subdirectory(doctest)
 
