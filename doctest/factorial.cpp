@@ -1,4 +1,4 @@
-#include "example.hpp"
+#include "factorial.hpp"
 
 std::size_t factorial(std::size_t n)
 {

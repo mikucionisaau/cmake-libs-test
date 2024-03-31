@@ -10,4 +10,5 @@ enable_testing()
 
 add_subdirectory(sanitizers)
 add_subdirectory(doctest)
+add_subdirectory(benchmark)
 

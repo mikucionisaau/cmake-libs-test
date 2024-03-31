@@ -1,4 +1,4 @@
-#include "example.hpp"
+#include "factorial.hpp"
 
 #include <doctest/doctest.h>
 

@@ -1,14 +1,10 @@
 cmake_minimum_required(VERSION 3.15)
-project(SanitizerTest)
-
-set(LSAN ON)
-set(ASAN ON)
-set(UBSAN ON)
+project(DoctestExample)
 
 include(../cmake-libs/doctest.cmake)
 
-add_library(example OBJECT example.cpp)
+add_library(factorial OBJECT factorial.cpp)
 
-add_executable(example_test example_test.cpp)
-target_link_libraries(example_test PRIVATE example doctest::doctest_with_main)
-add_test(NAME example_test COMMAND example_test)
+add_executable(factorial_test factorial_test.cpp)
+target_link_libraries(factorial_test PRIVATE factorial doctest::doctest_with_main)
+add_test(NAME factorial_test COMMAND factorial_test)
