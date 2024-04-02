@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 project(DoctestExample)
 
-include(../cmake-libs/doctest.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake-libs/doctest.cmake)
 
 add_library(factorial OBJECT factorial.cpp)
 
