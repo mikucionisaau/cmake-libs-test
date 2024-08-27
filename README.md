@@ -4,5 +4,6 @@
 
 The list of supported libraries:
 - [sanitizers](sanitizers/CMakeLists.txt) `ubsan`, `lsan`, `asan`.
-- [doctest](doctest/CMakeLists.txt) `factorial_test`
-- [benchmark](benchmark/CMakeLists.txt) `fastsort_bm`
+- [doctest](doctest/CMakeLists.txt) `factorial_test`.
+- [benchmark](benchmark/CMakeLists.txt) `fastsort_bm`.
+- [matplotpp_main](matplotpp/CMakeLists.txt) `matplotpp_main`.
