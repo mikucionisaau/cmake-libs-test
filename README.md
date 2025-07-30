@@ -7,3 +7,23 @@ The list of supported libraries:
 - [doctest](doctest/CMakeLists.txt) `factorial_test`.
 - [benchmark](benchmark/CMakeLists.txt) `fastsort_bm`.
 - [matplotpp_main](matplotpp/CMakeLists.txt) `matplotpp_main`.
+
+## Test
+See available CMake workflow presets:
+```shell
+cmake --workflow --list-presets
+```
+Run the workflow for release:
+```shell
+cmake --workflow release
+```
+Run the workflow for debug:
+```shell
+cmake --workflow debug
+```
+
+Cleanup:
+```shell
+rm -Rf build build-*
+rm -Rf cmake-build-*
+```
