@@ -2,14 +2,14 @@
 /// https://wiki.osdev.org/Stack_Smashing_Protector
 
 #include <algorithm>
-#include <array>      // size
-#include <cinttypes>  // uint8_t
+#include <array>  // size
+#include <iostream>
 #include <cassert>
 
-size_t count_unique(const uint8_t numbers[], size_t size);
+size_t count_unique(const int* numbers, std::size_t size);
 
-static uint8_t few[128];
-static uint8_t many[129];
+static int few[32];
+static int many[35];
 
 int main()
 {
@@ -19,14 +19,14 @@ int main()
     auto few_count = count_unique(few, std::size(few));
     assert(few_count == 5);
     auto many_count = count_unique(many, std::size(many));
-    assert(many_count == 5);
+    std::cout << "many_count = " << many_count << std::endl;
 }
 
-std::size_t count_unique(const uint8_t numbers[], const size_t size)
+std::size_t count_unique(const int* numbers, const std::size_t size)
 {
-    uint8_t values[128];
+    int values[32];  // not enough for `many`
     std::copy(numbers, numbers + size, values);
     std::sort(values, values + size);
-    auto end = std::unique(values, values + size);
+    const auto end = std::unique(values, values + size);
     return std::distance(values, end);
 }
