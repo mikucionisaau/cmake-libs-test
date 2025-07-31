@@ -1,0 +1,49 @@
+---
+name: Ubuntu-24.04
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        feature: ["", "-hardened", "-ssp", "-san", "-ubsan", "-lsan", "-asan", "-msan", "-tsan"]
+        toolchain: [{cc: gcc-14, cxx: g++-14, package: g++-14}, {cc: clang-19, cxx: clang++-19, package: clang-19}]
+        exclude:
+          - toolchain: {cc: gcc-14}
+            feature: "-msan"
+      fail-fast: false
+    runs-on: ubuntu-24.04
+    env:
+      CTEST_OUTPUT_ON_FAILURE: 1
+      CC: ${{ matrix.toolchain.cc }}
+      CXX: ${{ matrix.toolchain.cxx }}
+      FEATURE: ${{ matrix.feature }}
+    steps:
+      - name: Setup Tools
+        run: |
+          sudo apt-get -qq update
+          sudo apt-get -qq install python3-scipy cmake ninja-build ${{ matrix.toolchain.package }}
+          CORES=$(nproc)
+          echo "CMAKE_BUILD_PARALLEL_LEVEL=$CORES" >> $GITHUB_ENV
+          echo "CTEST_PARALLEL_LEVEL=$CORES" >> $GITHUB_ENV
+          echo "CTEST_TEST_LOAD=$CORES" >> $GITHUB_ENV
+          echo "CMAKE_GENERATOR=Ninja" >> $GITHUB_ENV
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+      - name: Configure Multi
+        run: cmake --preset multi${{ matrix.feature }}
+      - name: Build for Debug
+        run: cmake --build --preset debug${{ matrix.feature }}
+      - name: Test for Debug
+        run: ctest --preset debug${{ matrix.feature }}
+      - name: Build for Release
+        run: cmake --build --preset release${{ matrix.feature }}
+      - name: Test for Release
+        run: ctest --preset release${{ matrix.feature }}
