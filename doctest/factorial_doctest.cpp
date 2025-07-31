@@ -2,6 +2,8 @@
 
 #include <doctest/doctest.h>
 
+TEST_SUITE_BEGIN("DocTest for Factorials");
+
 TEST_CASE("Factorial function example")
 {
     SUBCASE("Boundary cases")
@@ -22,3 +24,5 @@ TEST_CASE("Factorial function example")
         CHECK(factorial(i) == 9'223'372'036'854'775'808uz);
     }
 }
+
+TEST_SUITE_END();

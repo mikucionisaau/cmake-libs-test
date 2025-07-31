@@ -12,6 +12,8 @@ option(LIBS_WITH_BENCHMARKS "libs with benchmarks" ON)
 enable_testing()
 
 add_subdirectory(sanitizers)
+add_subdirectory(factorial)
+add_subdirectory(catch2)
 add_subdirectory(doctest)
 if (LIBS_WITH_BENCHMARKS)
     add_subdirectory(benchmark)
