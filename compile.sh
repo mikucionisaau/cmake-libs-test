@@ -8,9 +8,9 @@ clang*)
   ;;
 esac
 
-cmake --workflow release
-cmake --workflow debug
+cmake --workflow --preset release
+cmake --workflow --preset debug
 for feature in $FEATURES ; do
-  cmake --workflow "release-${feature}"
-  cmake --workflow "debug-${feature}"
+  cmake --workflow --preset "release-${feature}"
+  cmake --workflow --preset "debug-${feature}"
 done

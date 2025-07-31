@@ -16,11 +16,11 @@ cmake --workflow --list-presets
 ```
 Run the workflow for release:
 ```shell
-cmake --workflow release
+cmake --workflow --preset release
 ```
 Run the workflow for debug:
 ```shell
-cmake --workflow debug
+cmake --workflow --preset debug
 ```
 
 Cleanup:
