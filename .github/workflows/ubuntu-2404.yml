@@ -39,11 +39,11 @@ jobs:
           submodules: 'recursive'
       - name: Configure Multi
         run: cmake --preset multi${{ matrix.feature }}
-      - name: Build for Debug
-        run: cmake --build --preset debug${{ matrix.feature }}
-      - name: Test for Debug
-        run: ctest --preset debug${{ matrix.feature }}
       - name: Build for Release
         run: cmake --build --preset release${{ matrix.feature }}
       - name: Test for Release
         run: ctest --preset release${{ matrix.feature }}
+      - name: Build for Debug
+        run: cmake --build --preset debug${{ matrix.feature }}
+      - name: Test for Debug
+        run: ctest --preset debug${{ matrix.feature }}
