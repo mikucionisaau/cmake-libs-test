@@ -7,7 +7,8 @@ The list of supported libraries:
 - [catch2](catch2/CMakeLists.txt) `factorial_catch2` from [Catch2](https://github.com/catchorg/Catch2).
 - [doctest](doctest/CMakeLists.txt) `factorial_doctest` from [doctest](https://github.com/doctest/doctest).
 - [benchmark](benchmark/CMakeLists.txt) `fastsort_bm`.
-- [matplotpp_main](matplotplusplus/CMakeLists.txt) `matplotpp_main`.
+- [matplotplusplus_main](matplotplusplus/CMakeLists.txt) `matplotplusplus_main`.
+- [armadillo](armadillo/CMakeLists.txt) `armadillo_main`.
 
 ## Test
 See available CMake workflow presets:
