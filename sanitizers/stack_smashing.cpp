@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <array>  // size
 #include <iostream>
+
 #include <cassert>
 
 size_t count_unique(const int* numbers, std::size_t size);
@@ -13,7 +14,7 @@ static int many[35];
 
 int main()
 {
-    auto mod_counter = [i = 0] mutable { return (++i) % 5; };
+    auto mod_counter = [i = 0] () mutable { return (++i) % 5; };
     std::generate(few, few + std::size(few), mod_counter);
     std::generate(many, many + std::size(many), mod_counter);
     auto few_count = count_unique(few, std::size(few));

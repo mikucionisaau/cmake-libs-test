@@ -32,6 +32,7 @@ add_executable(noinit noinit.cpp)
 add_test(NAME noinit COMMAND noinit)
 
 add_executable(data_race data_race.cpp)
+target_compile_features(data_race PRIVATE cxx_std_20)
 add_test(NAME data_race COMMAND data_race)
 
 if (CMAKE_CXX_COMPILER_ID MATCHES Clang)

@@ -4,6 +4,7 @@ project(BenchmarkExample)
 include(${CMAKE_SOURCE_DIR}/cmake-libs/benchmark.cmake)
 
 add_library(fastsort OBJECT fastsort.cpp)
+target_compile_features(fastsort PRIVATE cxx_std_20)
 
 add_executable(fastsort_bm fastsort_bm.cpp)
 target_link_libraries(fastsort_bm PRIVATE fastsort benchmark::benchmark_main)
