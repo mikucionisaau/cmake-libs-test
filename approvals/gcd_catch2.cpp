@@ -1,4 +1,3 @@
-#define APPROVALS_CATCH2_V3
 #include <ApprovalTests/ApprovalTests.hpp>
 #include <catch2/catch_test_macros.hpp>
 

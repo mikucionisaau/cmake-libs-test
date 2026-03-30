@@ -3,6 +3,8 @@ project(DoctestExample)
 
 include(${CMAKE_SOURCE_DIR}/cmake-libs/doctest.cmake)
 
+enable_testing()
+
 add_executable(factorial_doctest factorial_doctest.cpp)
 target_compile_features(factorial_doctest PRIVATE cxx_std_23)
 target_link_libraries(factorial_doctest PRIVATE factorial doctest::doctest_with_main)

@@ -9,10 +9,12 @@ enable_testing()
 
 add_executable(gcd_doctest gcd_doctest.cpp)
 target_compile_features(gcd_doctest PRIVATE cxx_std_23)
+target_compile_definitions(gcd_doctest PUBLIC APPROVALS_DOCTEST)
 target_link_libraries(gcd_doctest PRIVATE doctest::doctest_with_main ApprovalTests::ApprovalTests)
 add_test(NAME gcd_doctest COMMAND gcd_doctest)
 
 add_executable(gcd_catch2 gcd_catch2.cpp)
 target_compile_features(gcd_catch2 PRIVATE cxx_std_23)
+target_compile_definitions(gcd_catch2 PUBLIC APPROVALS_CATCH2_V3)
 target_link_libraries(gcd_catch2 PRIVATE Catch2::Catch2WithMain ApprovalTests::ApprovalTests)
 add_test(NAME gcd_catch2 COMMAND gcd_catch2)

@@ -3,6 +3,8 @@ project(BenchmarkExample)
 
 include(${CMAKE_SOURCE_DIR}/cmake-libs/benchmark.cmake)
 
+enable_testing()
+
 add_library(fastsort OBJECT fastsort.cpp)
 target_compile_features(fastsort PRIVATE cxx_std_20)
 

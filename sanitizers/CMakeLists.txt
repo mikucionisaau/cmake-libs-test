@@ -3,6 +3,8 @@ project(SanitizerExamples)
 
 include(${CMAKE_SOURCE_DIR}/cmake-libs/sanitizers.cmake)
 
+enable_testing()
+
 add_library(abort_exit OBJECT abort_exit.cpp)
 
 add_executable(stack_smashing stack_smashing.cpp)

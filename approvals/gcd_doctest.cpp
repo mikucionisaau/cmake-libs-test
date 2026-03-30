@@ -1,4 +1,3 @@
-#define APPROVALS_DOCTEST
 #include <ApprovalTests/ApprovalTests.hpp>
 #include <doctest/doctest.h>
 
